@@ -38,11 +38,14 @@ document.querySelector('.promo__genre').textContent = 'драма';
 document.querySelector('.promo__bg').style.cssText = 'background: url("./img/bg.jpg") center center/cover no-repeat';
 
 //4, 5
-let film = document.querySelectorAll('li.promo__interactive-item');
+let filmList = document.querySelector('.promo__interactive-list');
 
-// let sortMovies = movieDB.movies.sort();
-// console.log(sortMovies);
+filmList.innerHTML = '';
+movieDB.movies.sort();
 
-film.forEach((elem, index) => {
-    elem.textContent = `${index+1}.`+ ' '+ `${movieDB.movies.sort()[index]}`;
+movieDB.movies.forEach((elem, index)=>{
+    filmList.innerHTML += `
+    <li class="promo__interactive-item">${index+1}. ${elem} 
+    <div class="delete"></div>
+`
 })

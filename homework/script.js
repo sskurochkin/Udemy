@@ -121,3 +121,60 @@ console.log(d); */
 // console.log('rEx'> 'rex');
 // let d = document.querySelector('[data="go"]');
 // console.log(d);
+
+
+
+const stopTimer = document.querySelector('.btn');
+// let i=0,
+//     timer;
+
+// stopTimer.addEventListener('click', ()=>{
+//     timer = setInterval(logger, 1000);
+// });
+
+// function logger(){
+//     if(i === 3){clearInterval(timer)};
+//     console.log(i);
+//     i++;
+
+// }
+
+function anim() {
+    const elem = document.querySelector('.box');
+  
+    let pos = 0;
+    let i = 0;
+
+    const id = setInterval(frame, 10);
+    
+    elem.addEventListener('click', ()=>{
+        clearInterval(id)});
+
+    function frame() {
+       
+
+        if (i % 2 == 0) {
+            if (pos < 300) {
+                pos++;
+                elem.style.top = pos + 'px';
+                elem.style.left = pos + 'px';
+            } else {
+                i++;
+                console.log();
+            }
+        }else {
+            if (pos <= 300 && pos > 0) {
+                pos--;
+                elem.style.top = pos + 'px';
+                elem.style.left = pos + 'px';
+            } else {
+                i++;
+            }
+        }
+    }
+
+    
+   
+}
+
+stopTimer.addEventListener('click', anim);
